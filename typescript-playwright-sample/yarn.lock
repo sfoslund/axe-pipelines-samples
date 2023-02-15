@@ -44,6 +44,9 @@ ansi-styles@^4.0.0:
   dependencies:
     color-convert "^2.0.1"
 
+"axe-config@file:../../accessibility-insights-web/packages/axe-config/drop":
+  version "0.0.0"
+
 "axe-core@^3.2.2 || ^4.0.0", axe-core@^4.6.1:
   version "4.6.3"
   resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-4.6.3.tgz#fc0db6fdb65cc7a80ccf85286d91d64ababa3ece"

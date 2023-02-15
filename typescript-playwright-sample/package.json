@@ -13,5 +13,8 @@
   },
   "scripts": {
     "test": "playwright test"
+  },
+  "dependencies": {
+    "axe-config": "file:../../accessibility-insights-web/packages/axe-config/drop"
   }
 }

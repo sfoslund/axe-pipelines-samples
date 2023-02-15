@@ -4,6 +4,7 @@ import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import * as path from 'path';
 import { exportAxeAsSarifTestResult } from './export-to-sarif';
+import * as axeConfig from 'axe-config';
 
 // This file contains test cases that intentionally fail; you can refer to this project's
 // "[failing example] typescript-playwright-sample" Pipeline to see what an accessibility
@@ -19,9 +20,11 @@ test.describe('[failing example] index.html', () => {
 
     // This test case scans an element which includes a few examples of accessibility violations.
     test('accessibility of elements with issues', async ({ browserName, page }) => {
+        const axeOptions = axeConfig.axeScanOptions;
         const accessibilityScanResults = await new AxeBuilder({ page })
             .include('#example-accessibility-violations')
             .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
+            .options(axeOptions)
             .analyze();
             
         await exportAxeAsSarifTestResult('index-except-examples.sarif', accessibilityScanResults, browserName);
